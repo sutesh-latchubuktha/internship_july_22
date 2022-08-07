@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regex101</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+        h1{
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        div{
+            margin-top: 30px;
+            text-align: center;
+        }
+        #expression{
+            height: 40px;
+            width: 40%;
+            
+        }
+        input,textarea{
+            border-radius: 10px;
+        }
+        #submit{
+            padding: 10px;
+            background-color: green;    
+          color: white;
+          font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        regular expressions 101
+    </h1>
+
+    <div>
+        <form action="{{url_for('regexEvaluate')}}" method="post">
+            <label for="expression"><h3>Regular Expression</h3></label>
+            <br>
+            <input type="text" name="expression" id = "expression" placeholder="insert your reguler expression here" required/>
+            <br>
+            <br>
+            <label for="string"><h3>Test String</h3></label>
+            <br>
+            <textarea name = "string" rows="10" cols="80" placeholder="insert your test string here" required></textarea>
+            <br>
+            <br>
+            <input id ="submit" type="submit" value ="process">
+        </form>
+    </div>
+    <div>
+        <h1>matching information</h1>
+        <h3>Regular Expression {{reg_pattern}}</h3>
+        <h3>Test String {{sentence}}</h3>
+       <h3>
+        Number of matches   {{count}}
+       </h3>
+       <h3> result
+        {%for i in values%}
+        {{i}}
+        {% endfor%}
+       </h3>
+        
+    </div>
+</body>
+</html>
